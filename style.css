@@ -68,6 +68,58 @@ header .mode-btn:hover {
 }
 
 header .mode-btn .mode-icon {
-  font-size: 18px;
+  font-size: 16px;
   cursor: pointer;
+}
+
+.sidebar {
+  position: fixed;
+  width: 200px;
+  height: 100vh;
+  left: 0;
+  bottom: 0;
+  top: 80px;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar-title {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.sidebar-title .title {
+  font-size: 28px;
+  margin-bottom: 4px;
+  color: rgb(169, 165, 165);
+}
+
+.sidebar-title .subtitle {
+  color: rgb(67, 64, 224);
+  font-weight: 600;
+}
+
+.sidebar .nav-menu .nav-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  list-style: none;
+  height: 100vh;
+  gap: 20px;
+}
+
+.sidebar .nav-menu .nav-list .nav-item {
+  color: rgb(36, 36, 36);
+  cursor: pointer;
+  padding: 10px 30px;
+}
+
+.sidebar .nav-menu .nav-list .nav-item i {
+  margin-right: 10px;
+}
+
+.sidebar .nav-menu .nav-list .nav-item:hover {
+  border: 50px;
+  background-color: rgba(34, 31, 230, 0.233);
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
 }
