@@ -8,7 +8,7 @@
 }
 
 header {
-  position: fixed;
+  position: sticky;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -85,6 +85,7 @@ header .mode-btn .mode-icon {
   bottom: 0;
   top: 80px;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+  background-color: #ffffffff;
 }
 
 .sidebar-title {
@@ -211,7 +212,7 @@ header .mode-btn .mode-icon {
   border-radius: 4px;
 }
 
-@keyframes loading {
+/* @keyframes loading {
   0% {
     background-position: 200% 0;
   }
@@ -219,7 +220,7 @@ header .mode-btn .mode-icon {
   100% {
     background-position: -200% 0;
   }
-}
+} */
 
 /* main */
 
@@ -227,8 +228,9 @@ main {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  gap: 20px;
-  margin-top: 150px;
-  margin-left: 280px;
+  justify-content: center;
+  width: auto;
+  gap: 40px;
+  padding: 30px;
+  margin-left: 200px;
 }
