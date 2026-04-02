@@ -28,11 +28,12 @@
           type="text"
           name="Search"
           id="search"
-          placeholder="Search insight..." />
+          placeholder="Search insight..."
+          autofocus />
       </div>
 
       <div class="mode-btn">
-        <div class="mode-icon"><i class="fas fa-moon"></i></div>
+        <div class="mode-icon" id="btn"><i class="fas fa-moon"></i></div>
       </div>
     </header>
 
@@ -62,20 +63,20 @@
       <!-- card-skeleton -->
 
       <div class="card-skeleton">
-        <div class="image skeleton"></div>
+        <div class="image skeleton" id="image"></div>
         <div class="card-info">
           <div class="title-desc">
-            <div class="card-title skeleton"></div>
-            <div class="card-desc skeleton"></div>
+            <div class="card-title skeleton" id="card-title "></div>
+            <div class="card-desc skeleton" id="card-desc"></div>
           </div>
           <div class="card-details">
             <div class="D-H">
-              <div class="Date skeleton"></div>
-              <div class="Hours skeleton"></div>
+              <div class="Date skeleton" id="Date"></div>
+              <div class="Hours skeleton" id="Hours"></div>
             </div>
             <div class="C-I">
-              <div class="category skeleton"></div>
-              <div class="icon skeleton"></div>
+              <div class="category skeleton" id="category"></div>
+              <div class="icon skeleton" id="icon"></div>
             </div>
           </div>
         </div>
@@ -253,6 +254,6 @@
       </div>
     </main>
 
-    <script src="/script.js"></script>
+    <script src="./script.js"></script>
   </body>
 </html>
