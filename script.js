@@ -1,29 +1,100 @@
 let input = document.getElementById("search");
-let articleImg = document.getElementById("image");
-let CardTitle = document.getElementById("card-title");
-let cardDesc = document.getElementById("card-desc");
-let date = document.getElementById("Date");
-let hours = document.getElementById("Hours");
-let category = document.getElementById("category");
-let Icon = document.getElementById("icon");
+let cardContainer = document.getElementById("card-container");
+let btn = document.getElementById("btn");
 let APIKey = "pub_5bc4392416d24d448263cf233ef1504b";
 
-function searchTerm() {
+function inputValue() {
   if (input.value) {
     let encodedInput = encodeURIComponent(input.value.trim());
-    console.log(encodedInput);
-    return true;
+    return encodedInput;
   } else {
-    console.log(false);
-    return false;
+    return null;
   }
 }
 
-// async function fetchData() {
-//   const res = await fetch(
-//     ` https://newsdata.io/api/1/latest?apikey=${APIKey}&q=${encodedInput}&language=fr`,
-//   );
-//   if (!res.ok) throw new Error("Request failed");
-//   const data = await res.json();
-//   return data
-// }
+function showSkeleton() {
+  cardContainer.textContent = "";
+
+  for (let i = 0; i < 10; i++) {
+    cardContainer.innerHTML += `
+      <div class="card-skeleton">
+        <div class="image skeleton"></div>
+        <div class="card-info">
+          <div class="title-desc">
+            <div class="card-title skeleton"></div>
+            <div class="card-desc skeleton"></div>
+          </div>
+          <div class="card-details">
+            <div class="D-H">
+              <div class="Date skeleton"></div>
+              <div class="Hours skeleton"></div>
+            </div>
+            <div class="C-I">
+              <div class="category skeleton"></div>
+              <div class="icon skeleton"></div>
+            </div>
+          </div>
+        </div>
+      </div>`;
+  }
+}
+
+async function fetchData(value) {
+  try {
+    const res = await fetch(
+      ` https://newsdata.io/api/1/latest?apikey=${APIKey}&q=${value}&language=fr`,
+    );
+    if (!res.ok) throw new Error("Request failed");
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+function render(d) {
+  cardContainer.innerHTML = "";
+  if (!d.results || d.results.length === 0) {
+    cardContainer.innerHTML = "<p>Aucun résultat trouvé.</p>";
+    return;
+  }
+  d.results.forEach((article) => {
+    const newsImg = article.image_url
+      ? article.image_url
+      : "./PROJECTS/Pictures/Icons/image-solid.svg";
+    const description = article.description
+      ? article.description
+      : "Pas de description disponible.";
+    cardContainer.innerHTML += `
+   <div class="card-skeleton">
+        <img class="newImage" src = "${newsImg}">
+        <div class="card-info">
+          <div class="title-desc">
+            <div class="Newtitle">${article.title}</div>
+            <div class="newDesc">${description}</div>
+          </div>
+          <div class="card-details">
+            <div class="D-H">
+              <div class="newDate ">${article.pubDate.split(" ")[0]}</div>
+              <div class="newHour">${article.pubDate.split(" ")[1]}</div>
+            </div>
+            <div class="C-I">
+              <div class="newCategory">${article.category[0]}</div>
+              <img class="newIcon" src="${article.source_icon}">
+            </div>
+          </div>
+        </div>
+      </div>`;
+  });
+}
+
+btn.addEventListener("click", async () => {
+  let searchTerm = inputValue();
+  if (searchTerm) {
+    showSkeleton();
+    let data = await fetchData(searchTerm);
+    render(data);
+  } else {
+    return null;
+  }
+});
