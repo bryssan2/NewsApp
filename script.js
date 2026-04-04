@@ -13,7 +13,7 @@ function inputValue() {
 }
 
 function showSkeleton() {
-  cardContainer.textContent = "";
+  cardContainer.innerHTML = "";
 
   for (let i = 0; i < 10; i++) {
     cardContainer.innerHTML += `
@@ -46,6 +46,7 @@ async function fetchData(value) {
     );
     if (!res.ok) throw new Error("Request failed");
     const data = await res.json();
+    console.log(data);
     return data;
   } catch (error) {
     console.log(error);
@@ -59,32 +60,34 @@ function render(d) {
     return;
   }
   d.results.forEach((article) => {
-    const newsImg = article.image_url
-      ? article.image_url
-      : "./PROJECTS/Pictures/Icons/image-solid.svg";
+    const newsImg =
+      article.image_url && article.image_url !== "null"
+        ? article.image_url
+        : "/App_News/image-solid.svg";
     const description = article.description
       ? article.description
       : "Pas de description disponible.";
     cardContainer.innerHTML += `
-   <div class="card-skeleton">
-        <img class="newImage" src = "${newsImg}">
+    <a href="${article.link}" target="_blank" >
+   <div class="card">
+        <img class="newImage" src = "${newsImg}" alt="news-image">
         <div class="card-info">
           <div class="title-desc">
             <div class="Newtitle">${article.title}</div>
             <div class="newDesc">${description}</div>
           </div>
           <div class="card-details">
-            <div class="D-H">
-              <div class="newDate ">${article.pubDate.split(" ")[0]}</div>
-              <div class="newHour">${article.pubDate.split(" ")[1]}</div>
+            <div class="Date">
+              <div class="newDate">${article.pubDate.split(" ")[0]}</div>
             </div>
             <div class="C-I">
               <div class="newCategory">${article.category[0]}</div>
-              <img class="newIcon" src="${article.source_icon}">
+              <img class="newIcon" src="${article.source_icon || " "}">
             </div>
           </div>
         </div>
-      </div>`;
+      </div>
+      </a>`;
   });
 }
 

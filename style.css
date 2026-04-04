@@ -7,6 +7,11 @@
   font-family: "arial";
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
 header {
   position: fixed;
   display: flex;
@@ -39,12 +44,16 @@ header .input-box {
   background-color: rgba(132, 132, 132, 0.133);
 }
 
+header .input-box i {
+  cursor: pointer;
+}
+
 header .input-box input {
   width: 100%;
   height: 100%;
   border-radius: 50px;
   border: none;
-  background: transparent;
+  background-color: rgba(132, 132, 132, 0);
   outline: none;
   padding-right: 15px;
   font-size: 16px;
@@ -233,6 +242,81 @@ main {
 }
 
 /* cards styling */
+.card {
+  width: 350px;
+  border-radius: 12px;
+  background: #fff;
+  padding: 10px;
+}
+
+.card .newImage {
+  width: 100%;
+  height: 210px;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.card-info .title-desc {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-info .title-desc .Newtitle {
+  font-size: 19px;
+  font-weight: 600;
+  width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-info .title-desc .newDesc {
+  font-size: 17px;
+  width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-details .Date .newDate {
+  width: 40%;
+  height: 25px;
+}
+
+.card-details .C-I {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 25px;
+}
+
+.card-details .C-I .newCategory {
+  width: 40%;
+}
+
+.card-details .C-I .newIcon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50px;
+}
+
+/* mediaQueries */
 
 @media screen and (max-width: 900px) {
   header {
@@ -411,6 +495,11 @@ main {
   header .mode-btn .mode-icon {
     font-size: 11px;
   }
+
+  #card-container h1 {
+    font-size: 18px;
+    align-items: center;
+  }
 }
 
 @media screen and (max-width: 370px) {
@@ -425,11 +514,13 @@ main {
     justify-content: center;
   }
 
-  .card-skeleton {
+  .card-skeleton,
+  .card {
     width: 280px;
   }
 
-  .card-skeleton .image {
+  .card-skeleton .image,
+  .newImage {
     height: 130px;
   }
 
@@ -460,5 +551,25 @@ main {
     width: 30px;
     height: 30px;
     border-radius: 50px;
+  }
+
+  .card-info .title-desc .Newtitle {
+    font-size: 17px;
+  }
+
+  .card-info .title-desc .newDesc {
+    font-size: 15px;
+  }
+
+  .card-details .C-I .newIcon {
+    width: 35px;
+    height: 35px;
+    border-radius: 50px;
+    object-fit: contain;
+  }
+
+  #card-container h1 {
+    font-size: 16px;
+    align-items: center;
   }
 }
