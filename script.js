@@ -1,7 +1,7 @@
 let input = document.getElementById("search");
 let cardContainer = document.getElementById("card-container");
 let btn = document.getElementById("btn");
-let APIKey = "pub_5bc4392416d24d448263cf233ef1504b";
+let APIKey = "pub_6056fc3e3cea4ade834d90ca66500dcf";
 
 function inputValue() {
   if (input.value) {
@@ -91,7 +91,7 @@ function render(d) {
   });
 }
 
-btn.addEventListener("click", async () => {
+async function search() {
   let searchTerm = inputValue();
   if (searchTerm) {
     showSkeleton();
@@ -99,5 +99,23 @@ btn.addEventListener("click", async () => {
     render(data);
   } else {
     return null;
+  }
+}
+
+async function searchInit() {
+  const defaultTerm = "Technologie";
+  showSkeleton();
+  let data = await fetchData(defaultTerm);
+  render(data);
+}
+
+searchInit();
+
+window.addEventListener("load", search);
+
+btn.addEventListener("click", search);
+input.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    search();
   }
 });
