@@ -7,7 +7,9 @@ let APIKey = "pub_6056fc3e3cea4ade834d90ca66500dcf";
 
 function inputValue() {
   if (input.value) {
-    let encodedInput = encodeURIComponent(input.value.trim().toLocaleLowerCase);
+    let encodedInput = encodeURIComponent(
+      input.value.trim().toLocaleLowerCase(),
+    );
     return encodedInput;
   } else {
     return null;
@@ -115,6 +117,7 @@ searchInit();
 btn.addEventListener("click", search);
 input.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
+    categories.forEach((item) => item.classList.remove("active"));
     search();
   }
 });
@@ -134,6 +137,8 @@ async function fetchByCat(value) {
 
 categories.forEach((category) => {
   category.addEventListener("click", async () => {
+    categories.forEach((item) => item.classList.remove("active"));
+    category.classList.add("active");
     let catValue = category.dataset.category;
     if (catValue) {
       showSkeleton();

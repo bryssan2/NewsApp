@@ -137,6 +137,12 @@ header .mode-btn .mode-icon {
 
 .sidebar .nav-menu .nav-list .nav-item:hover {
   color: darkblue;
+  background-color: #32a6e5a0;
+}
+
+.active {
+  background-color: #0f9be7b9;
+  color: darkblue;
 }
 
 /* card-skeleton */
