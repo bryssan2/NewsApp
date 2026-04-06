@@ -1,11 +1,13 @@
 let input = document.getElementById("search");
 let cardContainer = document.getElementById("card-container");
 let btn = document.getElementById("btn");
+let categories = document.querySelectorAll(".nav-item");
+
 let APIKey = "pub_6056fc3e3cea4ade834d90ca66500dcf";
 
 function inputValue() {
   if (input.value) {
-    let encodedInput = encodeURIComponent(input.value.trim());
+    let encodedInput = encodeURIComponent(input.value.trim().toLocaleLowerCase);
     return encodedInput;
   } else {
     return null;
@@ -46,7 +48,6 @@ async function fetchData(value) {
     );
     if (!res.ok) throw new Error("Request failed");
     const data = await res.json();
-    console.log(data);
     return data;
   } catch (error) {
     console.log(error);
@@ -103,7 +104,7 @@ async function search() {
 }
 
 async function searchInit() {
-  const defaultTerm = "Technologie";
+  const defaultTerm = "top";
   showSkeleton();
   let data = await fetchData(defaultTerm);
   render(data);
@@ -111,11 +112,35 @@ async function searchInit() {
 
 searchInit();
 
-window.addEventListener("load", search);
-
 btn.addEventListener("click", search);
 input.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
     search();
   }
+});
+
+async function fetchByCat(value) {
+  try {
+    const res = await fetch(
+      ` https://newsdata.io/api/1/latest?apikey=${APIKey}&category=${encodeURIComponent(value)}&language=fr`,
+    );
+    if (!res.ok) throw new Error("Request failed");
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+categories.forEach((category) => {
+  category.addEventListener("click", async () => {
+    let catValue = category.dataset.category;
+    if (catValue) {
+      showSkeleton();
+      let data = await fetchByCat(catValue);
+      if (data && data.results) {
+        render(data);
+      }
+    }
+  });
 });

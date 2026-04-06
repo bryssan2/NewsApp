@@ -247,6 +247,13 @@ main {
   border-radius: 12px;
   background: #fff;
   padding: 10px;
+  transition: all ease 0.3s;
+}
+
+.card:hover {
+  background-color: #32a6e5a0;
+  color: white;
+  transform: scale(1.01);
 }
 
 .card .newImage {
