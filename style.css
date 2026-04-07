@@ -252,6 +252,7 @@ main {
   width: 350px;
   border-radius: 12px;
   background: #fff;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
   padding: 10px;
   transition: all ease 0.3s;
 }
@@ -333,28 +334,28 @@ main {
 
 @media screen and (max-width: 900px) {
   header {
-    padding: 0 20px;
+    padding: 0 25px;
   }
 
   header .logo .logo-name {
-    font-size: 22px;
+    font-size: 25px;
   }
 
   header .input-box {
-    width: 290px;
+    width: 300px;
   }
 
   header .input-box input::placeholder {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   header .mode-btn {
-    width: 24px;
-    height: 24px;
+    width: 33px;
+    height: 33px;
   }
 
   header .mode-btn .mode-icon {
-    font-size: 14px;
+    font-size: 20px;
   }
 
   header .input-box .fa-magnifying-glass {
@@ -362,38 +363,36 @@ main {
   }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 600px) {
+  header {
+    padding: 0 10px;
+  }
+
   header .logo .logo-name {
-    font-size: 20px;
+    font-size: 23px;
   }
 
   header .input-box {
-    width: 230px;
+    width: 300px;
   }
 
   header .input-box input::placeholder {
-    font-size: 12px;
+    font-size: 16px;
   }
 
   header .mode-btn {
-    width: 21px;
-    height: 21px;
+    width: 30px;
+    height: 30px;
   }
 
   header .mode-btn .mode-icon {
-    font-size: 12px;
+    font-size: 20px;
   }
 
   header .input-box .fa-magnifying-glass {
-    font-size: 12px;
+    font-size: 15px;
   }
 
-  header .input-box input {
-    font-size: 14px;
-  }
-}
-
-@media screen and (max-width: 600px) {
   body {
     padding-bottom: 70px;
   }
@@ -429,9 +428,8 @@ main {
   .sidebar .nav-menu .nav-list .nav-item {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    text-align: center;
     font-size: 14px;
-    margin-top: 10px;
   }
 
   .sidebar .nav-menu .nav-list .nav-item i {
@@ -450,11 +448,90 @@ main {
 
 @media screen and (max-width: 530px) {
   header .logo .logo-name {
+    font-size: 23px;
+  }
+
+  header .input-box {
+    width: 260px;
+  }
+
+  header .input-box input {
+    font-size: 12px;
+  }
+
+  header .input-box input::placeholder {
+    font-size: 16px;
+  }
+
+  header .input-box .fa-magnifying-glass {
+    font-size: 14px;
+  }
+
+  .sidebar .nav-menu .nav-list .nav-item {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  header .logo .logo-name {
+    font-size: 20px;
+  }
+
+  header .input-box {
+    width: 250px;
+  }
+
+  header .input-box input {
+    font-size: 12px;
+  }
+
+  header .input-box input::placeholder {
+    font-size: 16px;
+  }
+
+  header .input-box .fa-magnifying-glass {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  header .logo .logo-name {
+    font-size: 18px;
+  }
+
+  header .input-box {
+    width: 230px;
+  }
+
+  header .input-box input {
+    font-size: 12px;
+  }
+
+  header .input-box input::placeholder {
+    font-size: 16px;
+  }
+
+  header .input-box .fa-magnifying-glass {
+    font-size: 14px;
+  }
+
+  header .mode-btn {
+    width: 27px;
+    height: 27px;
+  }
+
+  header .mode-btn .mode-icon {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  header .logo .logo-name {
     font-size: 15px;
   }
 
   header .input-box {
-    width: 200px;
+    width: 210px;
   }
 
   header .input-box input {
@@ -462,62 +539,51 @@ main {
   }
 
   header .input-box input::placeholder {
-    font-size: 10px;
+    font-size: 13px;
   }
 
   header .input-box .fa-magnifying-glass {
-    font-size: 12px;
+    font-size: 13px;
   }
 
-  .sidebar .nav-menu .nav-list .nav-item {
-    font-size: 13px;
+  header .mode-btn {
+    width: 24px;
+    height: 24px;
+  }
+
+  header .mode-btn .mode-icon {
+    font-size: 16px;
   }
 }
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 375px) {
   header .logo .logo-name {
-    font-size: 13px;
+    font-size: 17px;
   }
 
   header .input-box {
     width: 150px;
-    height: 30px;
   }
 
   header .input-box input {
-    font-size: 9px;
-  }
-
-  header .input-box input::placeholder {
-    font-size: 9px;
-  }
-
-  header .input-box .fa-magnifying-glass {
     font-size: 10px;
   }
 
-  .sidebar .nav-menu .nav-list .nav-item {
-    font-size: 12px;
+  header .input-box input::placeholder {
+    font-size: 13px;
+  }
+
+  header .input-box .fa-magnifying-glass {
+    font-size: 13px;
   }
 
   header .mode-btn {
-    width: 18px;
-    height: 18px;
+    width: 24px;
+    height: 24px;
   }
 
   header .mode-btn .mode-icon {
-    font-size: 11px;
-  }
-
-  #card-container h1 {
-    font-size: 18px;
-    align-items: center;
-  }
-}
-
-@media screen and (max-width: 370px) {
-  header {
-    padding: 0 3px;
+    font-size: 16px;
   }
 
   main {
@@ -580,9 +646,38 @@ main {
     border-radius: 50px;
     object-fit: contain;
   }
+}
 
-  #card-container h1 {
+@media screen and (max-width: 320px) {
+  header .logo .logo-name {
+    font-size: 15px;
+  }
+
+  header .input-box {
+    width: 130px;
+    height: 30px;
+  }
+
+  header .input-box input {
+    font-size: 10px;
+  }
+
+  header .input-box input::placeholder {
+    font-size: 13px;
+  }
+
+  header .input-box .fa-magnifying-glass {
+    font-size: 13px;
+  }
+
+  header .mode-btn {
+    width: 24px;
+    height: 24px;
+  }
+
+  header .mode-btn .mode-icon {
     font-size: 16px;
-    align-items: center;
   }
 }
+
+/* styling for DarkMode */
