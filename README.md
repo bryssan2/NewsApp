@@ -5,7 +5,7 @@ du jour par catégorie.
 
 ## Voir le projet en ligne
 [brysnews.netlify.app](https://brysnews.netlify.app) 
-[news-app-mauve-rho.vercel]
+
 (https://news-app-mauve-rho.vercel.app/)
 
 ## Fonctionnalités
