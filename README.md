@@ -4,7 +4,9 @@ Application web d'actualités en temps réel permettant de consulter les derniè
 du jour par catégorie.
 
 ## Voir le projet en ligne
-[brysnews.netlify.app](https://brysnews.netlify.app)
+[brysnews.netlify.app](https://brysnews.netlify.app) 
+[news-app-mauve-rho.vercel]
+(https://news-app-mauve-rho.vercel.app/)
 
 ## Fonctionnalités
 - Affichage d'articles d'actualité en temps réel via une API
